@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/somanadha/studentmarkservice.git'
+                git branch: 'main', url: 'https://github.com/prakeshkumar15633/studentmarkservice'
             }
         }
         stage('Build') {
@@ -36,9 +36,9 @@ pipeline {
                 script {
                     withEnv(["KUBECONFIG=c:\\users\\test\\.kube\\config"]) {
                         // Replace variables in YAML and create concrete files:
-                        bat "envsubst < k8s/namespace-template.yaml > k8s/namespace.yaml"
-                        bat "envsubst < k8s/deployment-template.yaml > k8s/deployment.yaml"
-                        bat "envsubst < k8s/service-template.yaml > k8s/service.yaml"
+                        bat "\"C:\\Program Files\\Git\\usr\\bin\\envsubst.exe\" < k8s/namespace-template.yaml > k8s/namespace.yaml"
+                        bat "\"C:\\Program Files\\Git\\usr\\bin\\envsubst.exe\" k8s/deployment.yaml"
+                        bat "\"C:\\Program Files\\Git\\usr\\bin\\envsubst.exe\" k8s/service.yaml"
 
                         // Apply manifests
                         bat "kubectl apply -f k8s/namespace.yaml --validate=false"
